@@ -18,4 +18,9 @@ public class SpringbootApplication {
 	public String index(){
 		return "this is index page";
 	}
+
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public String helloWorld(){
+		return "Hello World";
+	}
 }
