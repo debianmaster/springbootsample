@@ -2,7 +2,12 @@ pipeline {
   agent any
   stages {
     stage('Build') {
-      agent any
+      agent {
+        node {
+          label 'maven'
+        }
+        
+      }
       steps {
         echo 'Build'
         sh 'oc start-build store-orders'
