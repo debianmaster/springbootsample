@@ -14,7 +14,8 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh 'grade bootrun'
+        sh '''grade bootrun
+ls -lrt'''
       }
     }
   }
