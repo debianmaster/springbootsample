@@ -1,15 +1,10 @@
 pipeline {
-  agent {
-    docker {
-      image 'gradle'
-    }
-    
-  }
+  agent any
   stages {
     stage('Build') {
       agent {
         docker {
-          image 'maven'
+          image 'gradle'
         }
         
       }
@@ -19,6 +14,12 @@ pipeline {
       }
     }
     stage('Test') {
+      agent {
+        node {
+          label 'gradle'
+        }
+        
+      }
       steps {
         sh '''grade bootrun
 ls -lrt'''
