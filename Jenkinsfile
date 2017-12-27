@@ -9,7 +9,12 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Build'
-        sh 'ls -lrt'
+        sh 'gradle clean build'
+      }
+    }
+    stage('Test') {
+      steps {
+        sh 'grade bootrun'
       }
     }
   }
