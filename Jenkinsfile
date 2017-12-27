@@ -1,21 +1,11 @@
 pipeline {
-  agent {
-    docker {
-      image 'docker:dind'
-    }
-    
-  }
+  agent any
   stages {
     stage('Build') {
-      agent {
-        docker {
-          image 'gradle'
-        }
-        
-      }
+      agent any
       steps {
         echo 'Build'
-        sh 'gradle clean build'
+        sh 'oc start-build store-orders'
       }
     }
     stage('Test') {
