@@ -1,28 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('Build and Release') {
+    stage('dev') {
       steps {
-        sh 'mvn clean package'
-      }
-    }
-    stage('test') {
-      steps {
-        parallel(
-          "test": {
-            echo 'testing'
-            
-          },
-          "code quality analysis": {
-            echo 'code'
-            
-          }
-        )
-      }
-    }
-    stage('deploy in dev') {
-      steps {
-        echo 'depoy in dev'
+        sh 'echo "asdfasdf"'
       }
     }
   }
