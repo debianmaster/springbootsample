@@ -7,6 +7,12 @@ pipeline {
   }
   stages {
     stage('Build') {
+      agent {
+        docker {
+          image 'maven'
+        }
+        
+      }
       steps {
         echo 'Build'
         sh 'gradle clean build'
@@ -18,5 +24,8 @@ pipeline {
 ls -lrt'''
       }
     }
+  }
+  environment {
+    name = 'dev'
   }
 }
